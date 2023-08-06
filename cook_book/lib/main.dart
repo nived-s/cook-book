@@ -7,11 +7,11 @@ import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'screens/onBoarding/onboarding_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
 
   // This widget is the root of your application.
   @override

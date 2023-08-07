@@ -1,32 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:cook_book/utilities/constants.dart';
 
-class OnBoarding1 extends StatelessWidget {
-  const OnBoarding1({super.key});
+class OnBoarding extends StatelessWidget {
+  const OnBoarding({super.key, required this.gradRotation, required this.image, required this.headingText, required this.descriptionText});
+
+  final double gradRotation;
+  final String image;
+  final String headingText;
+  final String descriptionText;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           gradient: LinearGradient(
-              colors: [Colors.yellow, Colors.white],
-              stops: [0.1, 0.5],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              transform: GradientRotation((22 / 7) / 8)),
+            colors: const [Colors.yellow, Colors.white],
+            stops: const [0.1, 0.5],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            transform: GradientRotation(gradRotation),
+          ),
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 32.0),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // image
               Container(
                 padding: const EdgeInsets.symmetric(
-                  vertical: 20,
+                  vertical: 30,
                 ),
                 child: Image.asset(
-                  'images/onboard5.png',
+                  image,
                 ),
               ),
               const SizedBox(
@@ -34,7 +41,7 @@ class OnBoarding1 extends StatelessWidget {
               ),
               // heading
               Text(
-                'Welcome to CookBook',
+                headingText,
                 style: kOnboardingHeadingText,
               ),
               const SizedBox(
@@ -42,7 +49,7 @@ class OnBoarding1 extends StatelessWidget {
               ),
               // description
               Text(
-                'Experience the joy of cooking through a seamless blend of written recipes and engaging video guides. Whether you\'re a seasoned chef or an aspiring home cook, FoodieVerse caters to your preferences. Embark on a gastronomic journey that brings together the richness of tradition and the thrill of experimentation.',
+                descriptionText,
                 style: kOnboardingDescriptionText,
                 textAlign: TextAlign.center,
               ),
